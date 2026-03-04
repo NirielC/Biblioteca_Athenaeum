@@ -1,0 +1,101 @@
+.menu-root{
+    -fx-padding: 26;
+    -fx-background-color: #f4f6f8;
+}
+
+.menu-hero{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.25, 0, 6);
+}
+
+/* Card */
+.menu-card{
+    -fx-background-color: white;
+    -fx-padding: 18;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(0,0,0,0.08);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.20, 0, 6);
+}
+
+.menu-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #7a031f;
+}
+
+.menu-subtitle{
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111827;
+}
+
+.menu-role{
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Buttons container */
+.menu-actions{
+    -fx-padding: 6 0 6 0;
+}
+
+/* Buttons */
+.menu-btn{
+    -fx-background-color: white;
+    -fx-text-fill: #111827;
+    -fx-font-weight: 900;
+    -fx-font-size: 13px;
+    -fx-padding: 12 14;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: rgba(0,0,0,0.08);
+    -fx-cursor: hand;
+    -fx-pref-height: 44;
+    -fx-min-width: 250;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0.15, 0, 4);
+}
+
+.menu-btn:hover{
+    -fx-background-color: #fffdf6;
+    -fx-border-color: rgba(201,162,77,0.50);
+    -fx-translate-y: -1;
+}
+
+.menu-btn:pressed{
+    -fx-translate-y: 0;
+    -fx-opacity: 0.96;
+}
+
+.menu-btn.warning{
+    -fx-background-color: #fff7ed;
+    -fx-border-color: rgba(253,186,116,0.85);
+}
+
+/* Logout */
+.logout-btn{
+    -fx-background-color: #9f1239;
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-padding: 12 18;
+    -fx-background-radius: 14;
+    -fx-cursor: hand;
+}
+
+.logout-btn:hover{
+    -fx-background-color: #7a031f;
+}
+
+/* Fuerza mismo ancho para todos los botones del menú */
+.menu-actions .menu-btn,
+.menu-actions .logout-btn{
+    -fx-pref-width: 250;
+    -fx-min-width: 250;
+    -fx-max-width: 250;
+}
+
+/* El de cerrar sesión que sea más grande */
+.menu-actions .logout-btn{
+    -fx-pref-width: 520;
+    -fx-min-width: 520;
+    -fx-max-width: 520;
+}

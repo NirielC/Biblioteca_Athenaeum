@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sv.arrupe.biblioteca.controller.LibrosCardsController"
+            stylesheets="@../styles/libros.css"
+            styleClass="root">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Libros" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <TextField fx:id="txtBuscar" promptText="Buscar por título/autor" prefWidth="360" styleClass="search"/>
+            <Button text="Buscar" onAction="#onBuscar" styleClass="top-action"/>
+            <Button text="Refrescar" onAction="#onRefrescar" styleClass="top-action"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll">
+            <TilePane fx:id="gridLibros"
+                      prefColumns="3"
+                      hgap="16" vgap="16"
+                      styleClass="grid"/>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" styleClass="bottombar">
+            <Button text="Volver al menú" onAction="#onVolverMenu" styleClass="top-action"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Nuevo" onAction="#onNuevo" styleClass="top-action"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

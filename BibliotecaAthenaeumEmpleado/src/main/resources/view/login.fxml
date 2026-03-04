@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<VBox spacing="14" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sv.arrupe.biblioteca.controller.LoginController"
+      styleClass="login-root">
+
+    <!-- Conectar CSS -->
+    <stylesheets>
+        <URL value="@../styles/login.css" />
+    </stylesheets>
+
+    <!-- Imagen (hero) -->
+    <ImageView fitWidth="360" fitHeight="160" preserveRatio="true" pickOnBounds="true" styleClass="login-hero">
+        <image>
+            <Image url="@../img/Logo.png" />
+        </image>
+    </ImageView>
+
+    <!-- Tarjeta -->
+    <VBox spacing="10" alignment="CENTER" maxWidth="360" styleClass="login-card">
+
+        <Label text="Login Empleado" styleClass="login-title"/>
+        <Label text="Ingresa con tu correo y contraseña" styleClass="login-subtitle"/>
+
+        <TextField fx:id="txtCorreo" promptText="Correo" maxWidth="320" styleClass="login-input"/>
+        <PasswordField fx:id="txtPass" promptText="Contraseña" maxWidth="320" styleClass="login-input"/>
+
+        <Button text="Iniciar sesión" onAction="#onLogin" maxWidth="320" styleClass="login-btn"/>
+        <Label fx:id="lblStatus" text="" styleClass="login-status"/>
+
+    </VBox>
+
+</VBox>

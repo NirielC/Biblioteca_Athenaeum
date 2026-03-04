@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sv.arrupe.biblioteca.controller.ActivosController"
+            styleClass="root">
+
+    <stylesheets>
+        <URL value="@../styles/activos.css" />
+    </stylesheets>
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="topbar">
+            <Label text="Préstamos Activos" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Refrescar" onAction="#onRefrescar" styleClass="btn-top"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ListView fx:id="listActivos" styleClass="list"/>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="bottombar">
+            <Button text="Volver al menú" onAction="#onVolverMenu" styleClass="btn-back"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

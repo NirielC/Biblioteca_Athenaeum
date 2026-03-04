@@ -1,0 +1,197 @@
+.root{
+    -fx-background-color: #FFFCEF;
+    -fx-font-family: "Segoe UI";
+}
+
+/* ===== top/bottom bars ===== */
+.topbar{
+    -fx-padding: 14 16;
+    -fx-background-color: rgba(255,255,255,0.90);
+    -fx-border-color: rgba(201,162,77,0.40);
+    -fx-border-width: 0 0 1 0;
+}
+
+.bottombar{
+    -fx-padding: 12 16;
+    -fx-background-color: rgba(255,255,255,0.90);
+    -fx-border-color: rgba(201,162,77,0.40);
+    -fx-border-width: 1 0 0 0;
+}
+
+.title{
+    -fx-font-size: 20px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #7a031f;
+}
+
+/* ===== list ===== */
+.list{
+    -fx-padding: 14;
+    -fx-background-color: transparent;
+}
+
+.list .viewport{
+    -fx-background-color: transparent;
+}
+
+/* Quitar el highlight azul/selección fea */
+.list-view .list-cell:filled:selected,
+.list-view .list-cell:filled:selected:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: inherit;
+}
+
+.list-view:focused{
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+}
+
+/* ===== card ===== */
+.card{
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(201,162,77,0.35);
+    -fx-border-width: 1;
+    -fx-padding: 12 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 16, 0.18, 0, 5);
+}
+
+.card:hover{
+    -fx-border-color: rgba(201,162,77,0.70);
+}
+
+/* ===== texts ===== */
+.row-title{
+    -fx-font-weight: 900;
+    -fx-text-fill: #111827;
+    -fx-font-size: 13px;
+}
+
+.row-meta{
+    -fx-text-fill: #374151;
+    -fx-font-size: 12px;
+}
+
+/* ===== buttons ===== */
+.btn{
+    -fx-cursor: hand;
+    -fx-font-weight: 900;
+    -fx-font-size: 12px;
+    -fx-padding: 10 14;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+
+.btn-soft{
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-text-fill: #7a031f;
+    -fx-border-color: rgba(201,162,77,0.45);
+    -fx-border-width: 1;
+}
+
+.btn-soft:hover{
+    -fx-background-color: #fffdf6;
+    -fx-border-color: rgba(201,162,77,0.85);
+}
+
+.top-action{
+    -fx-background-color: linear-gradient(to bottom right, #a10429, #7a031f);
+    -fx-text-fill: white;
+}
+
+/* aprobar/rechazar */
+.btn-approve{
+    -fx-background-color: #ecfdf5;
+    -fx-text-fill: #065f46;
+    -fx-border-color: #6ee7b7;
+    -fx-border-width: 1;
+}
+
+.btn-approve:hover{
+    -fx-background-color: #d1fae5;
+}
+
+.btn-reject{
+    -fx-background-color: #fff1f2;
+    -fx-text-fill: #9f1239;
+    -fx-border-color: #fda4af;
+    -fx-border-width: 1;
+}
+
+.btn-reject:hover{
+    -fx-background-color: #ffe4e6;
+}
+
+/* ===== botones superiores ===== */
+
+.btn-top{
+    -fx-background-color: linear-gradient(to bottom right, #a10429, #7a031f);
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-font-size: 12px;
+
+    -fx-background-radius: 10;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+
+.btn-top:hover{
+    -fx-background-color: linear-gradient(to bottom right, #c0123a, #8c0324);
+}
+
+
+/* ===== botones secundarios ===== */
+
+.btn-soft{
+    -fx-background-color: white;
+    -fx-border-color: #c9a24d;
+    -fx-border-width: 1;
+
+    -fx-text-fill: #7a031f;
+    -fx-font-weight: 900;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 6 14;
+
+    -fx-cursor: hand;
+}
+
+.btn-soft:hover{
+    -fx-background-color: #fffdf6;
+}
+
+
+/* ===== botón inferior volver ===== */
+
+.btn-back{
+    -fx-background-color: white;
+    -fx-border-color: #c9a24d;
+
+    -fx-text-fill: #7a031f;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 6 16;
+
+    -fx-cursor: hand;
+}
+
+.btn-back:hover{
+    -fx-background-color: #fffdf6;
+}
+
+
+/* ===== combo filtro ===== */
+
+.combo-filter{
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+    -fx-border-color: #c9a24d;
+    -fx-border-width: 1;
+
+    -fx-background-color: white;
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<VBox spacing="14" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sv.arrupe.biblioteca.controller.MenuController"
+      styleClass="menu-root">
+
+    <!-- Conectar CSS (igual que tu login) -->
+    <stylesheets>
+        <URL value="@../styles/menu.css" />
+    </stylesheets>
+
+    <!-- HERO (logo arriba, no gigante) -->
+    <ImageView fitWidth="220" fitHeight="110" preserveRatio="true" pickOnBounds="true" styleClass="menu-hero">
+        <Image url="@../img/Logo.png"/>
+    </ImageView>
+
+    <!-- Card con info -->
+    <VBox spacing="6" alignment="CENTER" maxWidth="520" styleClass="menu-card">
+        <Label text="Menú principal" styleClass="menu-title"/>
+        <Label fx:id="lblBienvenida" styleClass="menu-subtitle"/>
+        <Label fx:id="lblRol" styleClass="menu-role"/>
+    </VBox>
+
+    <!-- Opciones -->
+    <VBox spacing="10" alignment="CENTER" maxWidth="520" styleClass="menu-actions">
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Libros" onAction="#irLibros" styleClass="menu-btn"/>
+            <Button text="Pendientes" onAction="#irPendientes" styleClass="menu-btn"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Préstamos activos" onAction="#irActivos" styleClass="menu-btn"/>
+            <Button text="Atrasados" onAction="#irAtrasados" styleClass="menu-btn"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Historial" onAction="#irHistorial" styleClass="menu-btn"/>
+        </HBox>
+
+    </VBox>
+
+    <!-- Logout -->
+    <Button text="Cerrar sesión" onAction="#onLogout" maxWidth="520" styleClass="logout-btn"/>
+
+</VBox>

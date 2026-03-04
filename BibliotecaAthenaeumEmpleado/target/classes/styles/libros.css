@@ -1,0 +1,239 @@
+/* ==========================
+   ATHENAEUM THEME - LIBROS
+   (JavaFX CSS)
+   ========================== */
+
+.root{
+    -fx-background-color: #FFFCEF; /* crema */
+    -fx-font-family: "Segoe UI";
+}
+
+/* ---------- TOPBAR ---------- */
+.topbar{
+    -fx-padding: 16 18 14 18;
+    -fx-spacing: 10;
+    -fx-background-color: rgba(255,255,255,0.85);
+    -fx-border-color: rgba(201,162,77,0.40);
+    -fx-border-width: 0 0 1 0;
+}
+
+.title{
+    -fx-font-size: 22px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #7a031f; /* vino */
+}
+
+/* ---------- SEARCH ---------- */
+.search{
+    -fx-background-color: #fffdf6;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(201,162,77,0.45);
+    -fx-border-width: 1;
+    -fx-padding: 10 12;
+    -fx-font-size: 13px;
+}
+
+.search:focused{
+    -fx-border-color: #a10429;
+    -fx-effect: dropshadow(gaussian, rgba(161,4,41,0.18), 14, 0.25, 0, 0);
+}
+
+/* ---------- SCROLL ---------- */
+.scroll{
+    -fx-background-color: transparent;
+    -fx-padding: 16;
+}
+
+.scroll > .viewport{
+    -fx-background-color: transparent;
+}
+
+/* ---------- GRID ---------- */
+.grid{
+    -fx-padding: 6;
+}
+
+/* ==========================
+   BOTONES (base)
+   ========================== */
+.btn{
+    -fx-cursor: hand;
+    -fx-font-weight: 900;
+    -fx-font-size: 12px;
+    -fx-padding: 10 14;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 14, 0.20, 0, 4);
+}
+
+/* botón suave */
+.btn-soft{
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-text-fill: #7a031f;
+    -fx-border-color: rgba(201,162,77,0.45);
+    -fx-border-width: 1;
+}
+
+.btn-soft:hover{
+    -fx-background-color: #fffdf6;
+    -fx-border-color: rgba(201,162,77,0.75);
+    -fx-translate-y: -1;
+}
+
+.btn-soft:pressed{
+    -fx-translate-y: 0;
+    -fx-opacity: 0.96;
+}
+
+/* botón principal */
+.btn-primary{
+    -fx-background-color: linear-gradient(to bottom right, #a10429, #7a031f);
+    -fx-text-fill: white;
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-width: 1;
+}
+
+.btn-primary:hover{
+    -fx-effect: dropshadow(gaussian, rgba(122,3,31,0.25), 18, 0.25, 0, 6);
+    -fx-translate-y: -1;
+}
+
+/* ---------- BOTTOMBAR ---------- */
+.bottombar{
+    -fx-padding: 12 18 16 18;
+    -fx-spacing: 10;
+    -fx-background-color: rgba(255,255,255,0.85);
+    -fx-border-color: rgba(201,162,77,0.40);
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ==========================
+   CARD DE LIBRO
+   (clases usadas en tu controller)
+   ========================== */
+.card{
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(201,162,77,0.35);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.18, 0, 6);
+    -fx-pref-width: 360; /* coincide con tu cálculo */
+}
+
+.card:hover{
+    -fx-translate-y: -2;
+    -fx-border-color: rgba(201,162,77,0.70);
+}
+
+.card-selected{
+    -fx-border-color: #a10429;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(161,4,41,0.18), 18, 0.22, 0, 6);
+}
+
+/* portada */
+.cover-wrap{
+    -fx-background-color: linear-gradient(to bottom right, #f3f1eb, #fffdf6);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(0,0,0,0.06);
+    -fx-padding: 10;
+}
+
+.cover{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 14, 0.18, 0, 5);
+}
+
+/* info */
+.info{
+    -fx-padding: 2 2 0 2;
+}
+
+.book-title{
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #7a031f;
+}
+
+.meta-strong{
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111827;
+}
+
+.meta{
+    -fx-font-size: 12px;
+    -fx-text-fill: #374151;
+}
+
+.synopsis{
+    -fx-font-size: 12px;
+    -fx-text-fill: #4b5563;
+}
+
+/* ---------- BADGES ---------- */
+.badge{
+    -fx-padding: 4 10;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-font-size: 11px;
+    -fx-font-weight: 900;
+}
+
+.badge-activo{
+    -fx-background-color: #ecfdf5;
+    -fx-text-fill: #065f46;
+    -fx-border-color: #6ee7b7;
+    -fx-border-width: 1;
+}
+
+.badge-inactivo{
+    -fx-background-color: #fff1f2;
+    -fx-text-fill: #9f1239;
+    -fx-border-color: #fda4af;
+    -fx-border-width: 1;
+}
+
+/* ---------- ACTIONS ---------- */
+.actions-row{
+    -fx-padding: 6 0 0 0;
+}
+
+.actions{
+    -fx-padding: 0 0 2 0;
+}
+/* ====== SOLO TOP ACTIONS (Buscar / Refrescar) ====== */
+.top-action{
+    -fx-background-color: linear-gradient(to bottom right, #a10429, #7a031f);
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-font-size: 12px;
+    -fx-padding: 10 16;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255,255,255,0.15);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0.2, 0, 5);
+}
+
+.top-action:hover{
+    -fx-effect: dropshadow(gaussian, rgba(122,3,31,0.25), 18, 0.25, 0, 7);
+    -fx-translate-y: -1;
+}
+
+.top-action:pressed{
+    -fx-translate-y: 0;
+    -fx-opacity: 0.96;
+}
+
+/* Si quieres que Refrescar sea "soft" distinto (opcional):
+   solo añade una clase extra en el FXML: styleClass="top-action soft"
+*/
+.top-action.soft{
+    -fx-background-color: rgba(255,255,255,0.92);
+    -fx-text-fill: #7a031f;
+    -fx-border-color: rgba(201,162,77,0.65);
+}
