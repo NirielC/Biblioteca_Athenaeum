@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    var rol = Context.Session.GetString("Rol");   // "LECTOR"
+    var nombre = Context.Session.GetString("Nombre") ?? "Lector";
+
+    var ctrl = (ViewContext.RouteData.Values["controller"]?.ToString() ?? "").ToLower();
+
+    bool isCatalogo = ctrl == "catalogo";      // Index, Detalle, etc.
+    bool isPrestamos = ctrl == "prestamosweb";  // Mis, etc.
+    bool isPerfil = ctrl == "perfil";        // Index, etc.
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Biblioteca Virtual • Athenaeum</title>
+
+    <link rel="icon" type="image/png" href="~/img/Logo.png" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+
+<body class="app-body">
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <!-- COMO ANTES -->
+            <div class="logo">
+                <span class="logo-text">Biblioteca Virtual • Athenaeum</span>
+                <img src="~/img/Logo.png" alt="Athenaeum" />
+                <span class="user-chip" title="@nombre">@nombre</span>
+            </div>
+
+            <nav class="menu">
+                @if (rol == "LECTOR")
+                {
+                    <a asp-controller="Catalogo" asp-action="Index"
+                       class="@(isCatalogo ? "active" : "")">Catálogo</a>
+
+                    <a asp-controller="PrestamosWeb" asp-action="Mis"
+                       class="@(isPrestamos ? "active" : "")">Mis Préstamos</a>
+
+                    <a asp-controller="Perfil" asp-action="Index"
+                       class="@(isPerfil ? "active" : "")">Mi Perfil</a>
+                }
+
+                <a class="logout" asp-controller="WebAuth" asp-action="Logout">Cerrar sesión</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                Biblioteca Virtual • Athenaeum
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <div class="content-box">
+                @RenderBody()
+            </div>
+        </main>
+
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

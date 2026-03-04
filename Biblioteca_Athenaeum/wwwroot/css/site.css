@@ -1,0 +1,151 @@
+/* =========================
+   LOGIN SPLIT (como tu ejemplo)
+   ========================= */
+
+body.login-page {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden; /* que no salga scroll */
+    background: #f6f4ee;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.login-split {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+}
+
+/* IZQUIERDA */
+.login-panel {
+    background: #f6f4ee;
+    padding: 46px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.login-logo {
+    width: 140px; /* ajustá a gusto */
+    height: auto;
+    margin-bottom: 10px; /* separa del título */
+    padding-left: 100px; /* un poco de espacio a la izquierda */
+}
+
+.login-title {
+    margin: 0;
+    font-size: 22px;
+    color: #7a031f;
+    font-weight: 800;
+}
+
+.login-sub {
+    margin: 0 0 18px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* FORM */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 320px;
+}
+
+    .login-form label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #3b3b3b;
+        margin-top: 6px;
+    }
+
+    .login-form input {
+        height: 42px;
+        padding: 0 12px;
+        border-radius: 6px;
+        border: 1px solid #d7d7d7;
+        background: #eaf1ff;
+        outline: none;
+    }
+
+        .login-form input:focus {
+            border-color: #a10429;
+            box-shadow: 0 0 0 3px rgba(161,4,41,0.14);
+        }
+
+.btn-brand {
+    margin-top: 12px;
+    height: 44px;
+    border: none;
+    border-radius: 4px;
+    background: #c9a24d; /* dorado */
+    color: #111;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+    .btn-brand:hover {
+        filter: brightness(0.97);
+    }
+
+.hint {
+    margin-top: 14px;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+/* ALERT Y ERRORES */
+.alert {
+    max-width: 320px;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #9f1239;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.field-error {
+    font-size: 12px;
+    color: #b91c1c;
+    margin-top: -6px;
+}
+
+/* DERECHA (IMAGEN GRANDE CON TINTE VINO) */
+.login-hero {
+    position: relative;
+    background-image: url("/img/fondo.png"); /* 👈 pon tu imagen aquí */
+    background-size: cover;
+    background-position: center;
+}
+
+    .login-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(122, 3, 31, 0.55); /* tinte vino */
+    }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .login-split {
+        grid-template-columns: 1fr;
+    }
+
+    .login-hero {
+        display: none; /* en celular ocultamos la imagen */
+    }
+
+    .login-panel {
+        padding: 34px 22px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .login-form {
+        width: 100%;
+        max-width: 360px;
+    }
+}

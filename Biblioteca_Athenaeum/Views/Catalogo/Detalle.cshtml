@@ -1,0 +1,48 @@
+﻿@model Biblioteca_Athenaeum.Models.Libro
+@{
+    ViewData["Title"] = "Detalle";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/catalogo.css" asp-append-version="true" />
+}
+
+<div class="detalle-wrap">
+    <div class="detalle-img">
+        <img src="@(string.IsNullOrWhiteSpace(Model.imagen_portada) ? "/images/placeholder.png" : Model.imagen_portada)" alt="@Model.titulo" />
+    </div>
+
+    <div class="detalle-info">
+        <h1>@Model.titulo</h1>
+        <div class="autor">@Model.autor</div>
+
+        <span class="badge disponible">Disponible
+
+        </span>
+
+
+        <div class="detalle-meta">
+            <div><b>Género:</b> @Model.genero</div>
+            <div><b>Editorial:</b> @Model.editorial</div>
+            <div><b>Año:</b> @Model.año_publicación</div>
+            <div><b>ISBN:</b> @Model.isbn</div>
+        </div>
+
+        <div class="sinopsis">
+            <h3>Sinopsis</h3>
+            <p>@Model.sinopsis</p>
+        </div>
+
+        @if (TempData["Msg"] != null)
+        {
+            <div class="alert-ok">@TempData["Msg"]</div>
+        }
+
+        <form method="post" asp-controller="Catalogo" asp-action="Solicitar">
+            <input type="hidden" name="id_libro" value="@Model.id_libro" />
+            <button class="btn-prestar" type="submit">Solicitar préstamo</button>
+        </form>
+
+    </div>
+</div>

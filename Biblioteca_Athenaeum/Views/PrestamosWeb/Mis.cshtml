@@ -1,0 +1,58 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Mis Préstamos";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/usuario.css" asp-append-version="true" />
+}
+
+<h1>Mis Préstamos</h1>
+
+@if (TempData["Msg"] != null)
+{
+    <div class="alert-ok">@TempData["Msg"]</div>
+}
+
+<div id="misGrid">
+    @await Html.PartialAsync("_MisGrid", Model)
+</div>
+
+@section Scripts {
+    <script>
+        (function () {
+          let isUpdating = false;
+
+          async function refrescarGrid() {
+            if (isUpdating) return;
+            isUpdating = true;
+
+            try {
+              const res = await fetch('/PrestamosWeb/MisPartial', { cache: 'no-store' });
+
+              // Si se perdió sesión, el controller devuelve 401
+              if (res.status === 401) {
+                location.href = '/WebAuth/Login';
+                return;
+              }
+
+              if (!res.ok) return;
+
+              const html = await res.text();
+              const cont = document.getElementById('misGrid');
+              if (cont) cont.innerHTML = html;
+            } catch (e) {
+              // silencio
+            } finally {
+              isUpdating = false;
+            }
+          }
+
+          // refresca al entrar
+          refrescarGrid();
+
+          // refresca cada 4 segundos (cámbialo a 2000 si querés más rápido)
+          setInterval(refrescarGrid, 4000);
+        })();
+    </script>
+}

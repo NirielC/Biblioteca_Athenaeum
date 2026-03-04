@@ -1,0 +1,55 @@
+﻿@model Biblioteca_Athenaeum.DTOs.LoginRequestDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Login - Biblioteca Virtual • Athenaeum
+    </title>
+    <link rel="icon" type="image/png" href="~/img/Logo.png" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="login-page">
+
+    <div class="login-split">
+        <section class="login-panel">
+            <img class="login-logo" src="~/img/Logo.png" alt="Logo" />
+
+            <h1 class="login-title">
+                Biblioteca Virtual • Athenaeum
+            </h1>
+            <p class="login-sub">Acceso de lector</p>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert">@ViewBag.Error</div>
+            }
+
+            <form method="post" class="login-form">
+                <label>Correo</label>
+                <input asp-for="correo" placeholder="lector@athenaeum.com" />
+                <span asp-validation-for="correo" class="field-error"></span>
+
+                <label>Contraseña</label>
+                <input asp-for="contraseña" type="password" placeholder="••••••••" />
+                <span asp-validation-for="contraseña" class="field-error"></span>
+
+                <button type="submit" class="btn-brand">Iniciar Sesión</button>
+            </form>
+
+            <small class="hint">Tu cuenta la crea el administrador.</small>
+        </section>
+
+        <!-- DERECHA: imagen grande -->
+        <aside class="login-hero"></aside>
+
+    </div>
+
+    <partial name="_ValidationScriptsPartial" />
+</body>
+</html>

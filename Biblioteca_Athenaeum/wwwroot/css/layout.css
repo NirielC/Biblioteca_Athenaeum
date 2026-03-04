@@ -1,0 +1,217 @@
+/* ================= RESET / BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body.app-body {
+    background-color: #f6f4ee;
+    color: #333;
+    overflow: hidden; /* ✅ Scroll solo en content-area */
+}
+
+/* ================= APP LAYOUT ================= */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: linear-gradient(180deg, #7a031f, #540215);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 6px 0 25px rgba(0,0,0,0.18);
+    z-index: 10;
+}
+
+/* ================= LOGO / HEADER SIDEBAR (como antes) ================= */
+.logo {
+    padding: 26px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(201,162,77,0.35);
+}
+
+.logo-text {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #f5e7c3;
+    text-align: center;
+}
+
+/* Logo grande centrado */
+.logo img {
+    width: 150px;
+    padding: 10px;
+    border-radius: 16px;
+    background: transparent;
+    border: 2px solid #c9a24d;
+}
+
+/* User chip simple (como antes) */
+.user-chip {
+    margin-top: 4px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.88);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06);
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ================= MENU ================= */
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 22px 18px;
+    gap: 8px;
+}
+
+    /* Links normales */
+    .menu a {
+        position: relative;
+        text-decoration: none;
+        color: #f5f5f5;
+        padding: 14px 18px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 0.22s ease;
+    }
+
+        /* Hover */
+        .menu a:hover {
+            background: rgba(201,162,77,0.20);
+            transform: translateX(6px);
+        }
+
+        /* ===== ACTIVO (la página actual) ===== */
+        .menu a.active {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+            /* Barrita dorada a la izquierda */
+            .menu a.active::before {
+                content: "";
+                position: absolute;
+                left: -18px;
+                top: 10px;
+                width: 4px;
+                height: calc(100% - 20px);
+                background: #c9a24d;
+                border-radius: 6px;
+            }
+
+            /* Puntito dorado a la derecha */
+            .menu a.active::after {
+                content: "";
+                position: absolute;
+                right: 14px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 8px;
+                height: 8px;
+                background: #c9a24d;
+                border-radius: 50%;
+            }
+
+        /* Logout (como antes) */
+        .menu a.logout {
+            margin-top: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+            .menu a.logout:hover {
+                background: rgba(255,255,255,0.12);
+            }
+
+            /* Si por error le cae "active" al logout, que no se vea raro */
+            .menu a.logout.active::before,
+            .menu a.logout.active::after {
+                display: none;
+            }
+
+/* ================= SIDEBAR FOOTER ================= */
+.sidebar-footer {
+    padding: 20px;
+    font-size: 11px;
+    text-align: center;
+    color: rgba(255,255,255,0.70);
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ================= CONTENT ================= */
+.content-area {
+    margin-left: 260px; /* igual al ancho sidebar */
+    width: calc(100% - 260px);
+    height: 100vh;
+    overflow-y: auto; /* ✅ scroll solo acá */
+    padding: 40px;
+    background: radial-gradient(circle at top left, rgba(201,162,77,0.08), transparent 60%), #FFFCEF;
+}
+
+.content-box {
+    background-color: #ffffff;
+    min-height: calc(100vh - 80px); /* se siente “full” */
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border: 2px solid rgba(201,162,77,0.35);
+}
+
+    .content-box h1,
+    .content-box h2 {
+        color: #7a031f;
+        margin-bottom: 18px;
+        font-weight: 800;
+    }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    body.app-body {
+        overflow: auto;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .content-area {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        padding: 18px;
+    }
+
+    .content-box {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .menu a.active::before {
+        left: -12px; /* ajustito en móvil */
+    }
+}

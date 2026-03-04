@@ -1,0 +1,49 @@
+﻿@model IEnumerable<dynamic>
+
+<div class="list-grid">
+    @foreach (var x in Model)
+    {
+        <div class="p-card">
+            <div class="p-img">
+                <img src="@(string.IsNullOrWhiteSpace((string)x.imagen_portada) ? "/images/placeholder.png" : (string)x.imagen_portada)" />
+            </div>
+
+            <div class="p-info">
+                <div class="p-title">@x.titulo</div>
+                <div class="p-autor">@x.autor</div>
+
+                <div class="p-badges">
+                    <span class="badge @(x.estado.ToString().ToLower())">@x.estado</span>
+                </div>
+
+                <div class="p-dates">
+                    <div><b>Solicitud:</b> @(((DateTime)x.fecha_solicitud).ToString("yyyy-MM-dd"))</div>
+
+                    @if (x.fecha_aprobacion != null)
+                    {
+                        <div><b>Aprobación:</b> @(((DateTime)x.fecha_aprobacion).ToString("yyyy-MM-dd"))</div>
+                    }
+
+                    @if (x.fecha_vencimiento != null)
+                    {
+                        <div><b>Vence:</b> @(((DateTime)x.fecha_vencimiento).ToString("yyyy-MM-dd"))</div>
+                    }
+
+                    @if (x.fecha_devolucion != null)
+                    {
+                        <div><b>Devuelto:</b> @(((DateTime)x.fecha_devolucion).ToString("yyyy-MM-dd"))</div>
+                    }
+                </div>
+
+                @if (x.estado == "SOLICITADO")
+                {
+                    <form asp-controller="PrestamosWeb" asp-action="Cancelar" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id_prestamo" value="@x.id_prestamo" />
+                        <button class="btn-danger" type="submit">Cancelar</button>
+                    </form>
+                }
+            </div>
+        </div>
+    }
+</div>

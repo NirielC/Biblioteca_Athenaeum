@@ -1,0 +1,54 @@
+﻿@model List<Biblioteca_Athenaeum.Models.Libro>
+@{
+    ViewData["Title"] = "Catálogo";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/catalogo.css" asp-append-version="true" />
+}
+
+<div class="catalogo-header">
+    <div class="catalogo-title">
+        <h1>Catálogo de Libros</h1>
+    </div>
+
+    <form class="search-card" method="get">
+        <div class="search-bar">
+            <input name="q" value="@ViewBag.Q" placeholder="Buscar por título o autor..." />
+            <select name="autor">
+                <option value="Todos">Todos los autores</option>
+                @foreach (var a in (List<string>)ViewBag.Autores)
+                {
+                    <option value="@a" selected="@(ViewBag.Autor == a)">@a</option>
+                }
+            </select>
+
+            <select name="genero">
+                <option value="Todos">Todos los géneros</option>
+                @foreach (var g in (List<string>)ViewBag.Generos)
+                {
+                    <option value="@g" selected="@(ViewBag.Genero == g)">@g</option>
+                }
+            </select>
+
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<div class="books-grid">
+    @foreach (var l in Model)
+    {
+        <a class="book-card" asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@l.id_libro">
+            <div class="book-image">
+                <img src="@(string.IsNullOrWhiteSpace(l.imagen_portada) ? "/images/placeholder.png" : l.imagen_portada)" alt="@l.titulo" />
+            </div>
+            <div class="book-info">
+                <h3>@l.titulo</h3>
+                <div class="autor">@l.autor</div>
+                <span class="badge disponible">Disponible</span>
+            </div>
+        </a>
+    }
+</div>
